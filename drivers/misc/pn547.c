@@ -48,8 +48,13 @@
 #include <linux/clk.h>
 #endif
 
-#define FRAME_SIZE_COMPAT	(255 + 3)
-#define FRAME_SIZE 		(1023 + 5)
+#define MAX_NORMAL_FRAME_SIZE	(255 + 3)
+
+#if defined(CONFIG_ARM64) || defined(CONFIG_64BIT)
+#define MAX_FRAME_SIZE	(1023 + 5)
+#else
+#define MAX_FRAME_SIZE	512
+#endif
 
 #define NFC_DEBUG 0
 #define MAX_TRY_I2C_READ	10
@@ -155,7 +160,7 @@ static ssize_t pn547_dev_read(struct file *filp, char __user *buf,
 			      size_t count, loff_t *offset)
 {
 	struct pn547_dev *pn547_dev = filp->private_data;
-	char *tmp;
+	char tmp[MAX_FRAME_SIZE] = {0, };
 	int ret = 0, maxlen;
 	int readingWatchdog = 0;
 	bool fwdl;
@@ -163,16 +168,13 @@ static ssize_t pn547_dev_read(struct file *filp, char __user *buf,
 	mutex_lock(&pn547_dev->read_mutex);
 
 	fwdl = pn547_dev->state == PN547_STATE_FWDL;
-	maxlen = fwdl ? FRAME_SIZE : FRAME_SIZE_COMPAT;
-
-	if (count > maxlen)
-		count = maxlen;
-
-	tmp = kzalloc(count * sizeof(char), GFP_KERNEL);
-	if (tmp == NULL) {
-		pr_err("%s: Failed to allocate %s tmp\n", __func__, tmp);
-		ret = -EFAULT;
-		goto fail;
+	if (nfc_has_pinctrl) {
+		maxlen = fwdl ? MAX_FRAME_SIZE : MAX_NORMAL_FRAME_SIZE;
+		if (count > maxlen)
+			count = maxlen;
+	} else {
+		if (count > MAX_FRAME_SIZE)
+			count = MAX_FRAME_SIZE;
 	}
 
 	pr_debug("%s : reading %zu bytes. irq=%s\n", __func__, count,
@@ -235,28 +237,22 @@ wait_irq:
 	if (ret < 0) {
 		pr_err("%s: i2c_master_recv returned %d\n", __func__,
 				ret);
-		goto free_memory;
+		return ret;
 	}
 
 	if (ret > count) {
 		pr_err("%s: received too many bytes from i2c (%d)\n",
 				__func__, ret);
-		ret = -EIO;
-		goto free_memory;
+		return -EIO;
 	}
 
 	if (copy_to_user(buf, tmp, ret)) {
 		pr_err("%s : failed to copy to user space\n", __func__);
-		ret = -EFAULT;
-		goto free_memory;
+		return -EFAULT;
 	}
-
-free_memory:
-	kfree(tmp);
 	return ret;
 
 fail:
-	kfree(tmp);
 	mutex_unlock(&pn547_dev->read_mutex);
 	return ret;
 }
@@ -265,7 +261,7 @@ static ssize_t pn547_dev_write(struct file *filp, const char __user *buf,
 			       size_t count, loff_t *offset)
 {
 	struct pn547_dev *pn547_dev;
-	char *tmp;
+	char tmp[MAX_FRAME_SIZE] = {0, };
 	int ret = 0, retry = 5, maxlen;
 	bool fwdl;
 
@@ -276,22 +272,18 @@ static ssize_t pn547_dev_write(struct file *filp, const char __user *buf,
 #endif
 
 	fwdl = pn547_dev->state == PN547_STATE_FWDL;
-	maxlen = fwdl ? FRAME_SIZE : FRAME_SIZE_COMPAT;
-
-	if (count > maxlen)
-		count = maxlen;
-
-	tmp = kzalloc(count * sizeof(char), GFP_KERNEL);
-	if (tmp == NULL) {
-		pr_err("%s: Failed to allocate %s tmp\n", __func__, tmp);
-		ret = -EFAULT;
-		goto free_memory;
+	if (nfc_has_pinctrl) {
+		maxlen = fwdl ? MAX_FRAME_SIZE : MAX_NORMAL_FRAME_SIZE;
+		if (count > maxlen)
+			count = maxlen;
+	} else {
+		if (count > MAX_FRAME_SIZE)
+			count = MAX_FRAME_SIZE;
 	}
 
 	if (copy_from_user(tmp, buf, count)) {
 		pr_err("%s : failed to copy from user space\n", __func__);
-		ret = -EFAULT;
-		goto free_memory;
+		return -EFAULT;
 	}
 
 	pr_debug("%s : writing %zu bytes.\n", __func__, count);
@@ -316,8 +308,6 @@ static ssize_t pn547_dev_write(struct file *filp, const char __user *buf,
 		ret = -EIO;
 	}
 
-free_memory:
-	kfree(tmp);
 	return ret;
 }
 
