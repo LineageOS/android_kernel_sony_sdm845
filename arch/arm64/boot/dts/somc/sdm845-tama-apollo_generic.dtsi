@@ -14,3 +14,5 @@
 
 &soc {
 };
+
+#include "somc-tama-nfc_pn553.dtsi"
