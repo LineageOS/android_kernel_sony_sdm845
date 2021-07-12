@@ -15,7 +15,6 @@ obj-$(CONFIG_LKDTM)		+= lkdtm.o
 obj-$(CONFIG_TIFM_CORE)       	+= tifm_core.o
 obj-$(CONFIG_TIFM_7XX1)       	+= tifm_7xx1.o
 obj-$(CONFIG_PHANTOM)		+= phantom.o
-obj-$(CONFIG_NFC_PN547)		+= pn547.o
 obj-$(CONFIG_QCOM_COINCELL)	+= qcom-coincell.o
 obj-$(CONFIG_SENSORS_BH1770)	+= bh1770glc.o
 obj-$(CONFIG_SENSORS_APDS990X)	+= apds990x.o
@@ -63,6 +62,8 @@ obj-$(CONFIG_MEMORY_STATE_TIME)	+= memory_state_time.o
 
 obj-$(CONFIG_UID_SYS_STATS)	+= uid_sys_stats.o
 obj-$(CONFIG_MEMORY_STATE_TIME)	+= memory_state_time.o
+
+obj-$(CONFIG_NFC_PN553_DEVICES) += pn553.o
 
 obj-$(CONFIG_LDO_VIBRATOR)	+= ldo_vibrator.o
 

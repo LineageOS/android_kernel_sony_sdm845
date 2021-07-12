@@ -842,6 +842,15 @@ config MEMORY_STATE_TIME
 	help
 	  Memory time statistics exported to /sys/kernel/memory_state_time
 
+config NFC_PN553_DEVICES
+	tristate "Nxp pn553 NCI protocol driver (I2C) devices"
+	default n
+	---help---
+	  You'll have to say Y if your computer contains an I2C device that
+	  you want to use under Linux.
+
+	  You can say N here if you don't have any SPI connected to your computer.
+
 config QPNP_MISC
 	tristate "QPNP Misc Peripheral"
 	depends on MFD_SPMI_PMIC
@@ -889,25 +898,6 @@ config ONESEG_TUNER_SMTVJ19X
 	  1seg contents viewing.
 	  This module controls power switching and reset switching of
 	  SMT-VJ19x.
-
-config NFC_PN547
-	bool "NXP PN547 NFC Controller Driver"
-	depends on I2C
-	default n
-	help
-	  NXP PN547 Near Field Communication controller support.
-	  This option enables device driver support for the NFC.
-	  It is used by many services. NFC is fully controlled using I2C
-	  to communicate the AP chip.
-
-config NFC_PN547_PMC_CLK_REQ
-	bool "NXP PN547 NFC Controller Driver"
-	depends on I2C
-	default n
-	help
-	  PM8941 Clock request for NXP PN547 Near Field
-	  Communication controller support.
-	  This option enables d1 clock for NFC.
 
 source "drivers/misc/c2port/Kconfig"
 source "drivers/misc/eeprom/Kconfig"
