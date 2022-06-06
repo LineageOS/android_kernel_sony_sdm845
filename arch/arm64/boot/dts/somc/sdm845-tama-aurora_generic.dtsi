@@ -15,4 +15,4 @@
 &soc {
 };
 
-#include "somc-tama-nfc_pn553-xtal.dtsi"
+#include "somc-tama-nfc_nq.dtsi"
