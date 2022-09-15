@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eb812c9_715fdd9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-15T15:48:57Z",
+      "side": 1,
+      "message": "This is not part of the \"needed\" bringup chain, FIY. You could just push it to lineage-19.1 and merge right away like I did in gts4lv.",
+      "revId": "b1e207036e3f721ea2fd736d530223429bd22396",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
