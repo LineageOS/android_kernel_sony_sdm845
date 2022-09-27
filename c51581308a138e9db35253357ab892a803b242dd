@@ -52,6 +52,24 @@
       "parentUuid": "dbbbb8c5_9e615dbd",
       "revId": "c51581308a138e9db35253357ab892a803b242dd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7997a6e_cd41e6b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26916
+      },
+      "writtenOn": "2022-09-27T19:48:49Z",
+      "side": 1,
+      "message": "Yeah, I just forgot to pick the other one, so the compilation failure is resolved.",
+      "parentUuid": "0181103b_714fc015",
+      "revId": "c51581308a138e9db35253357ab892a803b242dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
