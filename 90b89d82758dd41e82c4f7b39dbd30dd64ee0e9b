@@ -16,6 +16,24 @@
       "message": "You can probably remove the signed-off lines if you want.\n\nhttps://github.com/vutung2311/beyondlte/commit/9ca0526ed70ecc72e470b72e5f3d1058b6c13732",
       "revId": "90b89d82758dd41e82c4f7b39dbd30dd64ee0e9b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0568fd57_3ad9a464",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26916
+      },
+      "writtenOn": "2022-10-10T16:00:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c9c550b_97f1a010",
+      "revId": "90b89d82758dd41e82c4f7b39dbd30dd64ee0e9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
