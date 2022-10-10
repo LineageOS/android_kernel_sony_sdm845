@@ -34,6 +34,24 @@
       "parentUuid": "3662d9d5_797f1b2e",
       "revId": "44949802bf5428b1f18411f9f2a2f941ece297ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c27d1a86_21f97991",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26916
+      },
+      "writtenOn": "2022-10-10T09:19:06Z",
+      "side": 1,
+      "message": "The authorship at the github commit from derfelot isn\u0027t correct too. I talked to him and he can\u0027t remember who the actual author is or where he got the fix from.",
+      "parentUuid": "826bad81_7bd7be68",
+      "revId": "44949802bf5428b1f18411f9f2a2f941ece297ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
