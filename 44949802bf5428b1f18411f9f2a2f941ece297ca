@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3662d9d5_797f1b2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31578
+      },
+      "writtenOn": "2022-10-10T05:24:31Z",
+      "side": 1,
+      "message": "Is the authorship correct? Since I saw you cherry-picking it from https://github.com/derfelot/android_kernel_sony_msm8998/commit/292a75c25c7bc831144677e656de84c168bc691b",
+      "revId": "44949802bf5428b1f18411f9f2a2f941ece297ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
