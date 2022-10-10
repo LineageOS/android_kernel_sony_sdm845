@@ -70,6 +70,23 @@
       "parentUuid": "c27d1a86_21f97991",
       "revId": "44949802bf5428b1f18411f9f2a2f941ece297ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db9d3d3_1e84f39c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17649
+      },
+      "writtenOn": "2022-10-10T09:33:46Z",
+      "side": 1,
+      "message": "No, it is my own commit, i didn\u0027t get it form anywhere else.\n\nI was referring to the fact that it doesn\u0027t have a Change-Id :)",
+      "revId": "44949802bf5428b1f18411f9f2a2f941ece297ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
