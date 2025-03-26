@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8e3eaf3_a895a143",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35077
+      },
+      "writtenOn": "2025-03-26T22:11:55Z",
+      "side": 1,
+      "message": "Hello Danny, upstreaming my change mentioned in this thread https://xdaforums.com/t/eol-rom-14-xz2c-official-lineageos-21.4672295/post-89655477\n\nAndroid keyboard key press responsiveness improved after this change. \n\nUpdating for apollo only. I only have an xz2c device. Cannot test and confirm on other devices. \nThis kernel change could be applied to any sdm845/tama device.",
+      "revId": "1ad7f768648ceeb275de8ce07b817ebe4bf2398f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
