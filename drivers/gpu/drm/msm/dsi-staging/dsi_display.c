@@ -4930,6 +4930,10 @@ int dsi_display_dev_remove(struct platform_device *pdev)
 	}
 
 	display = platform_get_drvdata(pdev);
+	if (!display) {
+		pr_err("invalid display\n");
+		return -EINVAL;
+	}
 
 #ifdef CONFIG_DRM_SDE_SPECIFIC_PANEL
 	dsi_panel_driver_deinit_area_count(display->panel);
