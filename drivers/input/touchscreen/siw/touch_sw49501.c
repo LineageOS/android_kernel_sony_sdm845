@@ -57,16 +57,9 @@
 
 #define CHIP_FW_SIZE				(96<<10)
 
-#if defined (SOMC_TOUCH_BRINGUP)
-#define CHIP_FLAGS					(0 |	\
-									TOUCH_SKIP_ESD_EVENT |	\
-									TOUCH_USE_PROBE_INIT_LATE |	\
-									0)
-#else
 #define CHIP_FLAGS					(0 |	\
 									TOUCH_SKIP_ESD_EVENT |	\
 									0)
-#endif
 
 #define CHIP_IRQFLAGS				(IRQF_TRIGGER_FALLING | IRQF_ONESHOT)
 
